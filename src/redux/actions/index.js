@@ -14,7 +14,7 @@
 
 export const fetchData = () => {
     return (dispatch) => {
-        return fetch('http://localhost:3001/todos')
+        return fetch('https://fake-serverrrrr.herokuapp.com/todos')
             .then(response =>  response.json())
             .then(json => dispatch(
                 { type: "FetchData", data: json }))
@@ -25,7 +25,7 @@ export const fetchData = () => {
 
 export const fetchDelete = (task) => {
     return (dispatch) => {
-        fetch("http://localhost:3001/todos/"+task.id, {
+        fetch("https://fake-serverrrrr.herokuapp.com/todos/"+task.id, {
             method: 'delete',
         })
         .then(() => dispatch(
@@ -39,7 +39,7 @@ export const fetchUpdateStatus = (task) => {
     const updateStatusTask = {...task,complete: !task.complete}
 
     return (dispatch) => {
-        fetch("http://localhost:3001/todos/"+task.id, {
+        fetch("https://fake-serverrrrr.herokuapp.com/todos/"+task.id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ export const fetchUpdateName = (task,inputUpdate) => {
     const updateStatusTask = {...task,task: inputUpdate}
 
     return (dispatch) => {
-        fetch("http://localhost:3001/todos/"+task.id, {
+        fetch("https://fake-serverrrrr.herokuapp.com/todos/"+task.id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -79,7 +79,7 @@ export const fetchUpdateName = (task,inputUpdate) => {
 
 export const addTask = (inputName) => {
     return (dispatch) => {
-        fetch("http://localhost:3001/todos/", {
+        fetch("https://fake-serverrrrr.herokuapp.com/todos/", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
